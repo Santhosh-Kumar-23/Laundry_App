@@ -13,7 +13,7 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
       <Root.Navigator screenOptions={{
           headerShown: false,
           headerBackTitleVisible: false,
-          gestureEnabled: false,
+          
         }}>
         <Root.Screen name={'SplashScreen'} component={SplashScreen} />
       </Root.Navigator>
