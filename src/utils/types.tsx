@@ -6,6 +6,8 @@ export type ScreenProps = NativeStackScreenProps<{navigation: any}>;
 export interface CardViewProps {
   containerStyle?: null | StyleProp<ViewStyle>;
   data?: Array<Object>;
+  maxheight: number;
+  children: any;
 }
 
 export interface ButtonInterface {

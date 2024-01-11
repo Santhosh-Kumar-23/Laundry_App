@@ -1,15 +1,17 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {fonts} from '../../utils/fonts';
+import {colors} from 'react-native-elements';
 
 const styles = StyleSheet.create({
   cardViewContainer: {
-    backgroundColor: 'yellow',
+    backgroundColor: colors.white,
     height: 240,
     marginHorizontal: 20,
     borderRadius: 10,
     marginTop: 10,
   },
   textContainer: {
-    backgroundColor: 'pink',
+    backgroundColor: colors.white,
     justifyContent: 'space-between',
     flexDirection: 'row',
     marginHorizontal: 22,
@@ -17,7 +19,9 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontWeight: '700',
-    color: 'black',
+    color: colors.black,
+    fontSize: 13,
+    fontFamily: fonts.OpenSansMedium,
   },
 });
 export default styles;
