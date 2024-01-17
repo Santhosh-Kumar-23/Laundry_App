@@ -1,13 +1,15 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {IconProps} from 'react-native-elements';
+import Calendar from '../components/Calendar/index';
 
-export type ScreenProps = NativeStackScreenProps<{navigation: any}>;
+export interface ScreenProps {
+  navigation?: any;
+}
 export interface ButtonInterface {
   containerStyle?: null | StyleProp<ViewStyle>;
   disabled?: boolean;
   loading?: boolean;
-  mode?: String;
   size?: String;
   textStyle?: null | StyleProp<TextStyle>;
   touchable?: boolean;
@@ -19,4 +21,31 @@ export interface ButtonInterface {
 
 export interface Iconprops extends IconProps {
   type?: string;
+}
+interface InputItem {
+  id: string;
+  placeholder: string;
+  value: string;
+  secureText?: boolean;
+  isrightIcon?: boolean;
+  isLeftIcon?: boolean;
+  iconPress?: any;
+  iconName?: string;
+  icontype?: string;
+  error?: string;
+  iserror?: boolean;
+  autofocus?: boolean;
+}
+export interface InputProps {
+  items: InputItem[];
+  itemOnchangeText: (index: number, newText: string) => void;
+  iconPress: (index: number) => void;
+}
+export interface CalendarProps {
+  onDateChange: any;
+}
+export interface ToastProps {
+  content: string;
+  closebtnPress?: any;
+  visiable: boolean;
 }
