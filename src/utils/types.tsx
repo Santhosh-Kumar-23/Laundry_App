@@ -5,7 +5,16 @@ import Calendar from '../components/Calendar/index';
 
 export interface ScreenProps {
   navigation?: any;
+  props?: any;
 }
+
+export interface CardViewProps {
+  containerStyle?: null | StyleProp<ViewStyle>;
+  data?: Array<Object>;
+  maxheight: number;
+  children: any;
+}
+
 export interface ButtonInterface {
   containerStyle?: null | StyleProp<ViewStyle>;
   disabled?: boolean;
