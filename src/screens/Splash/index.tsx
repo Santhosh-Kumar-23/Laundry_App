@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, StatusBar, SafeAreaView, Image} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {Images} from '../../assets/images/images';
@@ -10,6 +10,13 @@ import HelperStyles, {
 import {colors} from '../../utils/colors';
 
 const Splash: React.FC<ScreenProps> = ({navigation}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('OnboardingScreen');
+      // navigation.navigate('Bottomtab', {screen: 'More'});
+    }, 1000);
+  }, []);
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar

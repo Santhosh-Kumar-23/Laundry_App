@@ -2,7 +2,11 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {IconProps} from 'react-native-elements';
 
-export type ScreenProps = NativeStackScreenProps<{navigation: any}>;
+export interface ScreenProps {
+  navigation?: any;
+  props?: any;
+}
+
 export interface CardViewProps {
   containerStyle?: null | StyleProp<ViewStyle>;
   data?: Array<Object>;
