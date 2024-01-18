@@ -126,7 +126,10 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
       </View>
       <View style={[styles.container, {flex: 0.6, backgroundColor: 'white'}]}>
         {activeIndex !== 2 ? (
-          <View
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('BottomTab');
+            }}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -147,7 +150,7 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
             <View style={{justifyContent: 'center'}}>
               <Icon type="ant" name="caretright" color={'black'} size={10} />
             </View>
-          </View>
+          </TouchableOpacity>
         ) : (
           <></>
         )}
@@ -187,7 +190,9 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
       <View style={[styles.container, {backgroundColor: 'white', flex: 0.2}]}>
         <AppButton
           onPress={() => {
-            gotoNextPage();
+            activeIndex == 2
+              ? navigation.navigate('BottomTab')
+              : gotoNextPage();
           }}
           // bordered={true}
           size="mediumheight"
