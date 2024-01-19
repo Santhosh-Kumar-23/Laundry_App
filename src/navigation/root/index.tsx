@@ -11,6 +11,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import Splash from '../../screens/Splash';
 import Onboarding from '../../screens/onboarding/intex';
 import BottomTab from '../bottomTab';
+import Login from '../../screens/Login';
+import Signup from '../../screens/Signup';
+import ForgotPassword from '../../screens/ForgotPassword';
 
 interface RootNavigatorProps {}
 
@@ -31,6 +34,9 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
           component={BottomTab}
           options={{headerShown: false}}
         />
+        <Root.Screen name={'Login'} component={Login} />
+        <Root.Screen name={'Signup'} component={Signup} />
+        <Root.Screen name={'ForgotPassword'} component={ForgotPassword} />
       </Root.Navigator>
     </NavigationContainer>
   );

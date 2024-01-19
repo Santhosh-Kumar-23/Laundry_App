@@ -7,4 +7,6 @@ export const colors = {
   green: '#60D7AF',
   placeholderclr: '#c5c5c5',
   red: 'red',
+  textColor: '#5a5b5d',
+  textbold: '#000308',
 };

@@ -45,6 +45,7 @@ const HelperStyles: Styleprops = StyleSheet.create({
   flexStart: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    //alignItems: 'center',
   },
   flexend: {
     flexDirection: 'row',

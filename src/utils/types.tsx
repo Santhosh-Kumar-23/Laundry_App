@@ -43,12 +43,14 @@ interface InputItem {
   icontype?: string;
   error?: string;
   iserror?: boolean;
-  autofocus?: boolean;
+  keybordType?: string;
 }
 export interface InputProps {
   items: InputItem[];
   itemOnchangeText: (index: number, newText: string) => void;
   iconPress: (index: number) => void;
+  focusindex: number;
+  onFocus?: any;
 }
 export interface CalendarProps {
   onDateChange: any;
@@ -57,4 +59,7 @@ export interface ToastProps {
   content: string;
   closebtnPress?: any;
   visiable: boolean;
+}
+export interface InputRef {
+  focus: () => void;
 }
