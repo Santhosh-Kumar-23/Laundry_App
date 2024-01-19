@@ -16,23 +16,15 @@ import {colors} from '../../utils/colors';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import MyCart from '../../screens/myCart';
 import Home from '../../screens/home';
-
-const Screen1 = () => {
-  return <View style={styles.screen1} />;
-};
-
-const Screen2 = () => {
-  return <View style={styles.screen1} />;
-};
+import MyOrder from '../../screens/myOrder';
+import Notification from '../../screens/notification';
+import {fonts} from '../../utils/fonts';
+import Profile from '../../screens/profile';
 
 const Screen3 = () => {
   return <View style={styles.screen1}></View>;
 };
 const Screen4 = () => {
-  return <View style={styles.screen1}></View>;
-};
-
-const Screen5 = () => {
   return <View style={styles.screen1}></View>;
 };
 
@@ -99,7 +91,11 @@ export default function BottomTab() {
 
   return (
     <CurvedBottomBarExpo.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{
+        headerShown: false,
+        headerTitleAlign: 'center',
+        headerTitleStyle: {fontSize: 15, fontFamily: fonts.OpenSansBold},
+      }}
       type="DOWN"
       style={styles.bottomBar}
       shadowStyle={styles.shawdow}
@@ -123,7 +119,7 @@ export default function BottomTab() {
               <Image
                 source={Images.appIcon}
                 resizeMode="contain"
-                style={{width: 50, height: 50}}
+                style={{width: 50, height: 50, marginTop: 10}}
               />
             </View>
             {/* <Icon type="material" name={'dining'} color="red" size={25} /> */}
@@ -139,16 +135,16 @@ export default function BottomTab() {
       <CurvedBottomBarExpo.Screen
         name="My Order"
         position="LEFT"
-        component={() => <Screen2 />}
+        component={() => <MyOrder />}
       />
       <CurvedBottomBarExpo.Screen
         name="Notification"
-        component={() => <Screen3 />}
+        component={() => <Notification />}
         position="RIGHT"
       />
       <CurvedBottomBarExpo.Screen
         name="Profile"
-        component={() => <Screen4 />}
+        component={() => <Profile />}
         position="RIGHT"
       />
       <CurvedBottomBarExpo.Screen
@@ -177,6 +173,7 @@ export const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   bottomBar: {},
   btnCircleUp: {
