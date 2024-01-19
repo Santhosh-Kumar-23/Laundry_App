@@ -106,11 +106,7 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
 
   return (
     <View style={{flex: 1}}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent={true}
-        backgroundColor={colors.white}
-      />
+      <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
 
       <View
         style={{

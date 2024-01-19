@@ -19,11 +19,6 @@ const Splash: React.FC<ScreenProps> = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent={true}
-        backgroundColor={'white'}
-      />
       <View style={[flex(1), HelperStyles.CenterAlign, bgcolor(colors.white)]}>
         <Image
           source={Images.SplashImage}

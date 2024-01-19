@@ -29,7 +29,9 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
         <Root.Screen
           name="BottomTab"
           component={BottomTab}
-          options={{headerShown: false}}
+          options={{
+            headerShown: false,
+          }}
         />
       </Root.Navigator>
     </NavigationContainer>
