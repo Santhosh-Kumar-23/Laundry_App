@@ -8,6 +8,7 @@ import {
   ScrollView,
   Dimensions,
   FlatList,
+  Pressable,
 } from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {colors} from '../../utils/colors';
@@ -20,8 +21,10 @@ import {
 import Swiper from 'react-native-swiper';
 import {CardView} from '../../components/CardView/intex';
 import {flex} from '../../utils/helperstyles';
+import {useNavigation} from '@react-navigation/native';
 
-const Home: React.FC<ScreenProps> = ({navigation}) => {
+const Home: React.FC<ScreenProps> = ({}) => {
+  const navigation = useNavigation();
   const bannerImage = [
     {image: Images.bannerImage1},
     {image: Images.bannerImage2},
@@ -128,9 +131,9 @@ const Home: React.FC<ScreenProps> = ({navigation}) => {
                 Please Login
               </Text>
             </View>
-            <View>
+            <Pressable onPress={() => navigation.navigate('Login')}>
               <Images.HomeLogin />
-            </View>
+            </Pressable>
           </View>
         </View>
       </View>
