@@ -83,12 +83,12 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       item?.value === '' ? (item.iserror = true) : (item.iserror = false),
     );
     var focusindex = newItems.findIndex(item => item.value === '');
-    focusindex ?? setFocusinput(focusindex);
+    setFocusinput(focusindex);
 
     setItems(newItems);
   };
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar
         barStyle="dark-content"
         // translucent={true}

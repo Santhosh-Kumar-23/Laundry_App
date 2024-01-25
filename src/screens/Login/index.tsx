@@ -63,7 +63,7 @@ const Login: FC<ScreenProps> = ({navigation}) => {
     setItems(newItems);
   };
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar
         barStyle="dark-content"
         // translucent={true}

@@ -51,7 +51,7 @@ const ForgotPassword: FC<ScreenProps> = ({navigation}) => {
     navigation.navigate('OtpScreen');
   };
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar
         barStyle="dark-content"
         // translucent={true}
