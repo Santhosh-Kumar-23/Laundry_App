@@ -14,6 +14,7 @@ import BottomTab from '../bottomTab';
 import Login from '../../screens/Login';
 import Signup from '../../screens/Signup';
 import ForgotPassword from '../../screens/ForgotPassword';
+import OtpScreen from '../../screens/otp';
 
 interface RootNavigatorProps {}
 
@@ -39,6 +40,7 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
         <Root.Screen name={'Login'} component={Login} />
         <Root.Screen name={'Signup'} component={Signup} />
         <Root.Screen name={'ForgotPassword'} component={ForgotPassword} />
+        <Root.Screen name={'OtpScreen'} component={OtpScreen} />
       </Root.Navigator>
     </NavigationContainer>
   );

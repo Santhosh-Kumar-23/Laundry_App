@@ -48,6 +48,7 @@ const ForgotPassword: FC<ScreenProps> = ({navigation}) => {
     setFocusinput(focusindex);
 
     setItems(newItems);
+    navigation.navigate('OtpScreen');
   };
   return (
     <SafeAreaView style={{flex: 1}}>

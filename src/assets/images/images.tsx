@@ -18,6 +18,9 @@ export const Images = {
   notFound: require('../../assets/images/png/not_found.png'),
   notifiEmpty: require('../../assets/images/png/icon_notification.png'),
 
+  //jpg
+  otpImage: require('../../assets/images/png/otp.jpg'),
+
   //avg
   // loginArrow: require('../../assets/images/svgs/icon_home_login.svg'),
 };
