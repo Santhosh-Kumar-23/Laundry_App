@@ -16,6 +16,7 @@ import Signup from '../../screens/Signup';
 import ForgotPassword from '../../screens/ForgotPassword';
 import Profileupload from '../../screens/Profileupload';
 import Success from '../../screens/Signup/Success';
+import OtpScreen from '../../screens/otp';
 
 interface RootNavigatorProps {}
 
@@ -43,6 +44,7 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
         <Root.Screen name={'ForgotPassword'} component={ForgotPassword} />
         <Root.Screen name={'Profileupload'} component={Profileupload} />
         <Root.Screen name={'Success'} component={Success} />
+        <Root.Screen name={'OtpScreen'} component={OtpScreen} />
       </Root.Navigator>
     </NavigationContainer>
   );

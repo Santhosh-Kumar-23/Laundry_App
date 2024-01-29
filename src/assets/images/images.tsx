@@ -21,6 +21,9 @@ export const Images = {
   notifiEmpty: require('../../assets/images/png/icon_notification.png'),
   Success_signup: require('../../assets/images/png/firework.png'),
 
+  //jpg
+  otpImage: require('../../assets/images/png/otp.jpg'),
+
   //avg
   // loginArrow: require('../../assets/images/svgs/icon_home_login.svg'),
 };
