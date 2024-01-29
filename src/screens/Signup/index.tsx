@@ -83,8 +83,13 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       item?.value === '' ? (item.iserror = true) : (item.iserror = false),
     );
     var focusindex = newItems.findIndex(item => item.value === '');
-    setFocusinput(focusindex);
-
+    console.log('focusindex', focusindex);
+    if (focusindex != -1) {
+      setFocusinput(focusindex);
+    } else {
+      navigation.navigate('Profileupload');
+    }
+    //navigation.navigate('Profileupload');
     setItems(newItems);
   };
   return (
@@ -102,7 +107,10 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
         />
       </View>
       <ScrollView
-        contentContainerStyle={{paddingBottom: 30}}
+        contentContainerStyle={{
+          paddingBottom: 30,
+          backgroundColor: colors.white,
+        }}
         showsVerticalScrollIndicator={false}>
         <>
           <View style={[HelperStyles.CenterAlign]}>

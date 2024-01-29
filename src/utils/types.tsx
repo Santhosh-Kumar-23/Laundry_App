@@ -1,6 +1,6 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {IconProps} from 'react-native-elements';
+import {IconProps, Icon} from 'react-native-elements';
 import Calendar from '../components/Calendar/index';
 
 export interface ScreenProps {
@@ -26,6 +26,8 @@ export interface ButtonInterface {
   icon?: boolean;
   title?: string;
   onPress?: any;
+  iconName?: string;
+  icontype?: string;
 }
 
 export interface Iconprops extends IconProps {

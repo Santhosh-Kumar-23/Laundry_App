@@ -10,6 +10,7 @@ import {ButtonInterface} from '../../utils/types';
 import {colors} from '../../utils/colors';
 import {fonts} from '../../utils/fonts';
 import HelperStyles, {Width_Height} from '../../utils/helperstyles';
+import Icon from '../Icon';
 
 const Button: FC<ButtonInterface> = ({
   containerStyle = null,
@@ -19,14 +20,22 @@ const Button: FC<ButtonInterface> = ({
   size = '',
   textStyle = null,
   icon = false,
+  icontype,
+  iconName,
 }) => {
   function renderButton(): ReactElement {
     return (
       <View style={[HelperStyles.CenterAlign]}>
         <View style={HelperStyles.CenterAlign}>
           <View style={[HelperStyles.CenterAlign, HelperStyles.Row]}>
-            {/* {icon ? <Images.Google /> : null} */}
             <Text style={[styles.textStyles, textStyle]}>{title}</Text>
+            {icon ? (
+              <Icon
+                type={icontype}
+                name={iconName}
+                size={20}
+                style={{marginHorizontal: 10}}></Icon>
+            ) : null}
           </View>
         </View>
       </View>

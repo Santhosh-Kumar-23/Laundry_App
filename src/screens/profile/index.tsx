@@ -11,8 +11,10 @@ import {colors} from '../../utils/colors';
 import {Images} from '../../assets/images/images';
 import {fonts} from '../../utils/fonts';
 import Button from '../../components/Button';
+import {useNavigation} from '@react-navigation/native';
 
-const Profile: React.FC<ScreenProps> = ({navigation}) => {
+const Profile: React.FC<ScreenProps> = ({}) => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#f8f8ff'}}>
       <StatusBar barStyle="dark-content" backgroundColor={'white'} />
@@ -36,6 +38,7 @@ const Profile: React.FC<ScreenProps> = ({navigation}) => {
         </Text>
         <Button
           title="Sign Up"
+          onPress={() => navigation.navigate('Signup')}
           containerStyle={{marginTop: 25}}
           textStyle={{fontSize: 13}}
         />

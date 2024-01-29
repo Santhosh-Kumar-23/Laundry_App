@@ -1,10 +1,12 @@
 import homeLogin from '../../assets/images/svgs/icon_home_login.svg';
 import check from '../images/svgs/icon_selection_ticked.svg';
 import uncheck from '../images/svgs/icon_selection_unticked.svg';
+import UserProfile from '../images/svgs/icon_user_image.svg';
 export const Images = {
   HomeLogin: homeLogin,
   check,
   uncheck,
+  UserProfile,
   //png
   SplashImage: require('../../assets/images/png/logo.png'),
   appIcon: require('../../assets/images/png/app_icon.png'),
@@ -17,6 +19,7 @@ export const Images = {
   dummy3: require('../../assets/images/png/3.png'),
   notFound: require('../../assets/images/png/not_found.png'),
   notifiEmpty: require('../../assets/images/png/icon_notification.png'),
+  Success_signup: require('../../assets/images/png/firework.png'),
 
   //avg
   // loginArrow: require('../../assets/images/svgs/icon_home_login.svg'),
