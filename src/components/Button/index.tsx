@@ -47,7 +47,7 @@ const Button: FC<ButtonInterface> = ({
       disabled={disabled}
       style={[
         styles.buttonContainer,
-        Width_Height(size === 'small' ? 20 : size === 'medium' ? 40 : 90, 5.5),
+        Width_Height(size === 'small' ? 20 : size === 'medium' ? 30 : 90, 5.5),
         HelperStyles.CenterAlign,
         containerStyle,
       ]}

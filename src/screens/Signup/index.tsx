@@ -38,6 +38,7 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       value: '',
       error: 'Email field cannot be empty',
       iserror: false,
+      additionalError: 'Invalid email address',
     },
     {
       id: 'Phonenumber',
@@ -46,6 +47,7 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       error: 'Mobile field cannot be empty',
       iserror: false,
       keybordType: 'numeric',
+      additionalError: 'Invalid Phone Number',
     },
     {
       id: 'CreatePassword',
@@ -55,6 +57,8 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       isLeftIcon: true,
       error: 'Password field cannot be empty',
       iserror: false,
+      additionalError:
+        'Password must contain one digit from 1 to 9,one lowercase letter,one uppercase letter,one special character,and it must be minimum 8 characters',
     },
     {
       id: 'ConfirmPassword',
@@ -64,11 +68,20 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       isLeftIcon: true,
       error: 'Confirm Password field cannot be empty',
       iserror: false,
+      additionalError:
+        'Password must contain one digit from 1 to 9,one lowercase letter,one uppercase letter,one special character,and it must be minimum 8 characters',
     },
   ]);
-  const handleItemChange = (index: number, newText: string) => {
+  const handleItemChange = (
+    index: number,
+    newText: string,
+    isValidEmail: boolean,
+  ) => {
     const newItems = [...items];
     newItems[index].value = newText;
+    isValidEmail
+      ? (newItems[index].iserror = false)
+      : (newItems[index].iserror = true);
     setItems(newItems);
   };
   const onClickfun = (index: number) => {
@@ -76,11 +89,15 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
     newItems[index].secureText = !newItems[index]?.secureText;
     setItems(newItems);
   };
+
   const handleFocusClick = () => {
     const newItems = [...items] ?? [];
 
     newItems.map((item, i) =>
-      item?.value === '' ? (item.iserror = true) : (item.iserror = false),
+      item?.value === '' ||
+      (item?.value != '' && item.additionalError != '' && item.iserror === true)
+        ? (item.iserror = true)
+        : (item.iserror = false),
     );
     var focusindex = newItems.findIndex(item => item.value === '');
     console.log('focusindex', focusindex);

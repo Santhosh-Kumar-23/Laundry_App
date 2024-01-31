@@ -1,7 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {IconProps, Icon} from 'react-native-elements';
 import Calendar from '../components/Calendar/index';
+import {IconProps} from 'react-native-vector-icons/Icon';
 
 export interface ScreenProps {
   navigation?: any;
@@ -46,10 +46,15 @@ interface InputItem {
   error?: string;
   iserror?: boolean;
   keybordType?: string;
+  additionalError?: string;
 }
 export interface InputProps {
   items: InputItem[];
-  itemOnchangeText: (index: number, newText: string) => void;
+  itemOnchangeText: (
+    index: number,
+    newText: string,
+    isValidEmail?: boolean,
+  ) => void;
   iconPress: (index: number) => void;
   focusindex: number;
   onFocus?: any;

@@ -22,6 +22,9 @@ import {fonts} from '../../utils/fonts';
 import {colors} from '../../utils/colors';
 const Login: FC<ScreenProps> = ({navigation}) => {
   const [focusinput, setFocusinput] = useState();
+  const [email, setemail] = useState('');
+  const [passwpord, setPassword] = useState('');
+
   const [items, setItems] = useState([
     {
       id: 'Email',
@@ -29,6 +32,7 @@ const Login: FC<ScreenProps> = ({navigation}) => {
       value: '',
       error: 'Email field cannot be empty',
       iserror: false,
+      additionalError: 'Invalid email address',
     },
     {
       id: 'Password',
@@ -38,11 +42,23 @@ const Login: FC<ScreenProps> = ({navigation}) => {
       isLeftIcon: true,
       error: 'Password field cannot be empty',
       iserror: false,
+      additionalError:
+        'Password must contain one digit from 1 to 9,one lowercase letter,one uppercase letter,one special character,and it must be minimum 8 characters',
     },
   ]);
-  const handleItemChange = (index: number, newText: string) => {
+  const handleItemChange = (
+    index: number,
+    newText: string,
+    isValidEmail: boolean,
+  ) => {
     const newItems = [...items];
     newItems[index].value = newText;
+    isValidEmail
+      ? (newItems[index].iserror = false)
+      : (newItems[index].iserror = true);
+    newItems[index].id === 'Email'
+      ? setemail(newItems[index].value)
+      : setPassword(newItems[index].value);
     setItems(newItems);
   };
   const onClickfun = (index: number) => {
@@ -54,9 +70,11 @@ const Login: FC<ScreenProps> = ({navigation}) => {
     const newItems = [...items] ?? [];
 
     newItems.map((item, i) =>
-      item?.value === '' ? (item.iserror = true) : (item.iserror = false),
+      item?.value === '' || (item?.value != '' && item.iserror === true)
+        ? (item.iserror = true)
+        : (item.iserror = false),
     );
-    var focusindex = newItems.findIndex(item => item.value === '');
+    var focusindex = newItems.findIndex(item => item.iserror === true);
 
     setFocusinput(focusindex);
 

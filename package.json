@@ -20,6 +20,7 @@
     "react-native-animated-pagination-dots": "^0.1.73",
     "react-native-calendar-picker": "^8.0.0",
     "react-native-curved-bottom-bar": "^3.2.6",
+    "react-native-element-dropdown": "^2.10.1",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "^2.14.0",
     "react-native-image-picker": "^7.1.0",

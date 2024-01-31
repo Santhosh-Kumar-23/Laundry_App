@@ -40,6 +40,7 @@ import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import FAIcon5 from 'react-native-vector-icons/FontAwesome5';
+import FAIcon6 from 'react-native-vector-icons/FontAwesome6';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -76,6 +77,8 @@ const getIconFont = (type?: string) => {
       return EntypoIcon;
     case 'octicon':
       return OcticonIcon;
+    case 'fa6':
+      return FAIcon6;
     default:
       return FAIcon;
   }

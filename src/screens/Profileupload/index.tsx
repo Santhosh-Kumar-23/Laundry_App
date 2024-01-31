@@ -98,7 +98,7 @@ const Profileupload: FC<ScreenProps> = ({navigation}) => {
             style={{width: 120, height: 120, borderRadius: 120 / 2}}
             source={{uri: selectedImage}}></Image>
         ) : (
-          <Images.UserProfile fill={'green'} />
+          <Images.UserProfile fill={colors.primarycolor} />
         )}
         <Pressable
           onPress={() => openImagePicker()}
