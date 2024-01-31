@@ -33,14 +33,8 @@ const Input = forwardRef<InputRef, InputProps>(
           return emailRegex.test(item.value);
           break;
         case 'Password':
-          return password.test(item.value);
-          break;
         case 'CreatePassword':
-          return password.test(item.value);
-          break;
         case 'ConfirmPassword':
-          console.log(item.value);
-
           return password.test(item.value);
           break;
         case 'Phonenumber':
@@ -89,16 +83,15 @@ const Input = forwardRef<InputRef, InputProps>(
                 value={item.value}
                 selectionColor={item.iserror ? 'red' : 'green'}
                 onChangeText={newText => {
-                  // Check for email validation
-                  const isValidEmail = isValid(item);
+                  const isValidInput = isValid(item);
 
-                  itemOnchangeText(index, newText, isValidEmail);
+                  itemOnchangeText(index, newText, isValidInput);
                 }}
                 placeholder={item.placeholder}
                 placeholderTextColor={colors.placeholderclr}
-                secureTextEntry={item.secureText ?? false}
+                secureTextEntry={true}
                 underlineColorAndroid={'transparent'}
-                keyboardType={item.keybordType ?? 'default'}
+                keyboardType={'default'}
               />
               {item.isLeftIcon ? (
                 <>
