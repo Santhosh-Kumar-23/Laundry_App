@@ -75,13 +75,23 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
     index: number,
     newText: string,
     isValidEmail: boolean,
+    additionalError: string,
   ) => {
     const newItems = [...items];
+    if (newItems[index].id != 'Fullname') {
+      isValidEmail
+        ? (newItems[index].iserror = false)
+        : (newItems[index].iserror = true);
+    } else {
+      newItems[index].value != ''
+        ? (newItems[index].iserror = false)
+        : (newItems[index].iserror = true);
+    }
+
     newItems[index].value = newText;
-    isValidEmail
-      ? (newItems[index].iserror = false)
-      : (newItems[index].iserror = true);
+
     setItems(newItems);
+    //}
   };
   const onClickfun = (index: number) => {
     const newItems = [...items] ?? [];
@@ -98,17 +108,36 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
         ? (item.iserror = true)
         : (item.iserror = false),
     );
-    var focusindex = newItems.findIndex(item => item.value === '');
-    console.log('focusindex', focusindex);
+    const createPassword = items.find(i => i.id === 'CreatePassword')?.value;
+    const confirmPassword = items.find(i => i.id === 'ConfirmPassword')?.value;
+    if (
+      createPassword != '' &&
+      confirmPassword != '' &&
+      createPassword !== confirmPassword
+    ) {
+      // Set an additional error for ConfirmPassword
+      var index = newItems.findIndex(item => item.id === 'ConfirmPassword');
+      newItems[index].iserror = true;
 
-    if (focusindex != -1) {
-      setFocusinput(focusindex);
+      newItems[index].additionalError =
+        'ConfirmPassword should match CreatePassword';
+      setItems(newItems);
     } else {
-      navigation.navigate('Profileupload');
+      var focusindex = newItems.findIndex(item => item.value === '');
+
+      console.log('focusindex', focusindex);
+
+      if (focusindex != -1) {
+        setFocusinput(focusindex);
+      } else {
+        navigation.navigate('Profileupload');
+      }
+      //navigation.navigate('Profileupload');
+      setItems(newItems);
     }
-    navigation.navigate('Profileupload');
-    setItems(newItems);
   };
+  //console.log(items);
+
   return (
     <>
       <View style={[HelperStyles.CenterAlign, marginHV(0, 3)]}>

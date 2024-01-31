@@ -54,6 +54,7 @@ export interface InputProps {
     index: number,
     newText: string,
     isValidEmail?: boolean,
+    additionalError?: string,
   ) => void;
   iconPress: (index: number) => void;
   focusindex: number;
