@@ -4,7 +4,6 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   Text,
   View,
 } from 'react-native';
@@ -101,21 +100,17 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
     );
     var focusindex = newItems.findIndex(item => item.value === '');
     console.log('focusindex', focusindex);
+
     if (focusindex != -1) {
       setFocusinput(focusindex);
     } else {
       navigation.navigate('Profileupload');
     }
-    //navigation.navigate('Profileupload');
+    navigation.navigate('Profileupload');
     setItems(newItems);
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
-      <StatusBar
-        barStyle="dark-content"
-        // translucent={true}
-        backgroundColor={'white'}
-      />
+    <>
       <View style={[HelperStyles.CenterAlign, marginHV(0, 3)]}>
         <Image
           source={Images.SplashImage}
@@ -216,7 +211,7 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
           </View>
         </>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 export default Signup;

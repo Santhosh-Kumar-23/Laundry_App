@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StatusBar,
-  SafeAreaView,
-  Image,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, SafeAreaView, Image, StyleSheet} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 
 import HelperStyles, {
@@ -28,11 +21,7 @@ const About: React.FC<ScreenProps> = ({}) => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#f8f8ff'}}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={colors.primarycolor}
-      />
+    <>
       <View
         style={{
           backgroundColor: colors.primarycolor,
@@ -88,7 +77,7 @@ const About: React.FC<ScreenProps> = ({}) => {
       <View style={[HelperStyles.CenterAlign, {marginBottom: 20}]}>
         <Button onPress={() => navigation.goBack()} title="Close" />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 

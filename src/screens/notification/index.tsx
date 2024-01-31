@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StatusBar, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 
 import HelperStyles, {
@@ -14,8 +14,7 @@ import Button from '../../components/Button';
 
 const Notification: React.FC<ScreenProps> = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#f8f8ff'}}>
-      <StatusBar barStyle="dark-content" backgroundColor={'white'} />
+    <>
       <View style={{backgroundColor: 'white', padding: 15}}>
         <Text
           style={{
@@ -37,7 +36,7 @@ const Notification: React.FC<ScreenProps> = ({navigation}) => {
           Your notification is Empty.
         </Text>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 

@@ -1,12 +1,5 @@
 import React, {FC, useState} from 'react';
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
+import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {Images} from '../../assets/images/images';
 import HelperStyles, {
@@ -51,12 +44,7 @@ const ForgotPassword: FC<ScreenProps> = ({navigation}) => {
     navigation.navigate('OtpScreen');
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
-      <StatusBar
-        barStyle="dark-content"
-        // translucent={true}
-        backgroundColor={'white'}
-      />
+    <>
       <View style={[marginHV(5, 8)]}>
         <Text
           style={{
@@ -98,7 +86,7 @@ const ForgotPassword: FC<ScreenProps> = ({navigation}) => {
           onPress={handleFocusClick}
         />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 export default ForgotPassword;

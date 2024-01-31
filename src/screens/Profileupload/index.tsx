@@ -4,7 +4,6 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   Text,
   View,
 } from 'react-native';
@@ -60,12 +59,7 @@ const Profileupload: FC<ScreenProps> = ({navigation}) => {
   }, [isupload]);
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
-      <StatusBar
-        barStyle="dark-content"
-        // translucent={true}
-        backgroundColor={'white'}
-      />
+    <>
       <View style={[HelperStyles.CenterAlign, marginHV(0, 3)]}></View>
 
       <Text
@@ -155,7 +149,7 @@ const Profileupload: FC<ScreenProps> = ({navigation}) => {
           icontype="ant"
         />
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 export default Profileupload;

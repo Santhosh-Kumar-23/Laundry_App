@@ -74,7 +74,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import {Animated, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Animated, StyleSheet, Text, View} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import {ToastProps} from '../../utils/types';
 import Icon from '../Icon';

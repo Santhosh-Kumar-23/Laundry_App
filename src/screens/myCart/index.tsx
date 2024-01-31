@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StatusBar,
-  SafeAreaView,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {colors} from '../../utils/colors';
 import {Images} from '../../assets/images/images';
@@ -18,8 +11,7 @@ import {CardView} from '../../components/CardView/intex';
 
 const MyCart: React.FC<ScreenProps> = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#f8f8ff'}}>
-      <StatusBar barStyle="dark-content" backgroundColor={'white'} />
+    <>
       <View style={{backgroundColor: 'white', padding: 15}}>
         <Text
           style={{
@@ -602,7 +594,7 @@ const MyCart: React.FC<ScreenProps> = ({navigation}) => {
           </View>
         </CardView>
       </ScrollView> */}
-    </SafeAreaView>
+    </>
   );
 };
 

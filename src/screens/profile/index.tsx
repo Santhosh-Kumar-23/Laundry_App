@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -21,7 +21,7 @@ import {colors} from '../../utils/colors';
 import {Images} from '../../assets/images/images';
 import {fonts} from '../../utils/fonts';
 import Button from '../../components/Button';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {Divider} from 'react-native-elements';
 import Icon from '../../components/Icon';
 import {
@@ -51,14 +51,20 @@ const Profile: React.FC<ScreenProps> = ({}) => {
     }
     return null;
   };
+  useFocusEffect(
+    React.useCallback(() => {
+      StatusBar.setBackgroundColor(colors.primarycolor);
+
+      return () => StatusBar.setBackgroundColor(colors.white);
+    }, []),
+  );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#f8f8ff'}}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={colors.primarycolor}
-      />
+    <>
       <View style={{backgroundColor: colors.primarycolor, padding: 15}}>
+        <View style={[HelperStyles.CenterAlign]}>
+          <Images.UserProfile fill={colors.white} />
+        </View>
         {/* <Text
           style={{
             textAlign: 'center',
@@ -67,7 +73,7 @@ const Profile: React.FC<ScreenProps> = ({}) => {
           }}>
           Profile
         </Text> */}
-        <View style={[HelperStyles.Spacebetween]}>
+        {/* <View style={[HelperStyles.Spacebetween]}>
           <Icon type="fa6" size={35} color={colors.white} name="user-large" />
           <Button
             title="Login"
@@ -76,7 +82,7 @@ const Profile: React.FC<ScreenProps> = ({}) => {
             textStyle={{color: colors.primarycolor}}
             containerStyle={{backgroundColor: colors.white, borderRadius: 15}}
           />
-        </View>
+        </View> */}
       </View>
       <View style={[HelperStyles.flexend, marginHV(5, 4)]}>
         <Dropdown
@@ -105,6 +111,29 @@ const Profile: React.FC<ScreenProps> = ({}) => {
             />
           )}
         />
+      </View>
+      <View style={[marginHV(5, 0), {marginTop: hp(1)}]}>
+        <Pressable
+          //onPress={() => navigation.navigate('Privacy')}
+          style={[HelperStyles.Row]}>
+          <Icon
+            size={25}
+            type="material"
+            color={colors.black}
+            name="edit-location"
+          />
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: fonts.OpenSansRegular,
+              color: colors.textbold,
+              marginHorizontal: 15,
+            }}>
+            Manage Address
+          </Text>
+        </Pressable>
+
+        <Divider style={{marginVertical: 20}} />
       </View>
       <View style={[marginHV(5, 0), {marginTop: hp(1)}]}>
         <Pressable
@@ -181,24 +210,25 @@ const Profile: React.FC<ScreenProps> = ({}) => {
             About Us
           </Text>
         </Pressable>
+        <Divider style={{marginVertical: 20}} />
       </View>
-
-      {/* <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-        <Image source={Images.notFound} />
-        <Text style={{fontFamily: fonts.OpenSansBold, color: colors.black}}>
-          You are not signed in!
-        </Text>
-        <Text style={{fontFamily: fonts.OpenSansBold, color: colors.black}}>
-          Please sign in first.
-        </Text>
-        <Button
-          title="Sign Up"
-          onPress={() => navigation.navigate('Signup')}
-          containerStyle={{marginTop: 25}}
-          textStyle={{fontSize: 13}}
-        />
-      </View> */}
-    </SafeAreaView>
+      <View style={[marginHV(5, 0), {marginTop: hp(1)}]}>
+        <Pressable
+          //onPress={() => navigation.navigate('Privacy')}
+          style={[HelperStyles.Row]}>
+          <Icon size={25} type="material" color={colors.black} name="logout" />
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: fonts.OpenSansRegular,
+              color: colors.textbold,
+              marginHorizontal: 15,
+            }}>
+            Log Out
+          </Text>
+        </Pressable>
+      </View>
+    </>
   );
 };
 const styles = StyleSheet.create({

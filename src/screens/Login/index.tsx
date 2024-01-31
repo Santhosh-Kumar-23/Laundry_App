@@ -1,12 +1,5 @@
 import React, {FC, useState} from 'react';
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
+import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {Images} from '../../assets/images/images';
 import HelperStyles, {
@@ -81,12 +74,7 @@ const Login: FC<ScreenProps> = ({navigation}) => {
     setItems(newItems);
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
-      <StatusBar
-        barStyle="dark-content"
-        // translucent={true}
-        backgroundColor={'white'}
-      />
+    <>
       <View style={[HelperStyles.CenterAlign]}>
         <View style={[HelperStyles.CenterAlign, marginHV(0, 10)]}>
           <Image
@@ -143,7 +131,7 @@ const Login: FC<ScreenProps> = ({navigation}) => {
           </Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 export default Login;

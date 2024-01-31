@@ -6,7 +6,6 @@ import {
   Animated,
   TouchableOpacity,
   Text,
-  StatusBar,
   TextInput,
   ScrollView,
   Image,
@@ -106,8 +105,6 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
 
   return (
     <View style={{flex: 1}}>
-      <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
-
       <View
         style={{
           flex: 0.2,

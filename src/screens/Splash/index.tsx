@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StatusBar, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image} from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {Images} from '../../assets/images/images';
 import HelperStyles, {

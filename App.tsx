@@ -4,6 +4,7 @@ import {SafeAreaView, StatusBar} from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import {PermissionsAndroid} from 'react-native';
 import PushNotification from 'react-native-push-notification';
+import {colors} from './src/utils/colors';
 
 const App: React.FC = () => {
   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS); //added for initial allow pop up message push notification
@@ -61,9 +62,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <RootNavigator />
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
+        <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+        <RootNavigator />
+      </SafeAreaView>
+    </>
   );
 };
 
