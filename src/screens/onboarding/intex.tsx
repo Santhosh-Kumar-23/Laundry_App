@@ -68,7 +68,7 @@ const Onboarding: React.FC<ScreenProps> = ({navigation}) => {
 
   //Flatlist props that calculates current item index
   const onViewRef = React.useRef(({viewableItems}: any) => {
-    console.log('viewableItems::: ', JSON.stringify(viewableItems));
+    // console.log('viewableItems::: ', JSON.stringify(viewableItems));
     setActiveIndex(viewableItems[0]?.index);
   });
   const viewConfigRef = React.useRef({viewAreaCoveragePercentThreshold: 50});
