@@ -69,7 +69,7 @@ const OtpScreen: React.FC<otpView> = ({navigation}) => {
             //focusStickBlinkingDuration={500}
             onTextChange={(text: any) => console.log(text)}
             onFilled={(text: any) =>
-              text.length === 4 && navigation.navigate('Login')
+              text.length === 4 && navigation.navigate('RecoverPassword')
             }
             theme={{
               containerStyle: styles.otpcontainner,
@@ -87,9 +87,9 @@ const OtpScreen: React.FC<otpView> = ({navigation}) => {
             <Text style={styles.title}>s</Text>
           </Text>
         </View>
-        <View style={[styles.centerimage]}>
+        {/* <View style={[styles.centerimage]}>
           <Button title="Submit" />
-        </View>
+        </View> */}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

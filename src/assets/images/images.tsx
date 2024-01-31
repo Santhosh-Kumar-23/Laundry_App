@@ -23,6 +23,7 @@ export const Images = {
   notifiEmpty: require('../../assets/images/png/icon_notification.png'),
   Success_signup: require('../../assets/images/png/firework.png'),
   contact_us: require('../images/png/contact_us.png'),
+  reset: require('../../assets/images/png/reset.jpg'),
 
   //jpg
   otpImage: require('../../assets/images/png/otp.jpg'),

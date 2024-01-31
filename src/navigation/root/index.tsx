@@ -21,6 +21,7 @@ import Privacy from '../../screens/Privacy';
 import Terms from '../../screens/Terms';
 import About from '../../screens/Aboutus';
 import Contact from '../../screens/Contactus';
+import RecoverPassword from '../../screens/recoverPassword';
 
 interface RootNavigatorProps {}
 
@@ -46,6 +47,7 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
         <Root.Screen name={'Login'} component={Login} />
         <Root.Screen name={'Signup'} component={Signup} />
         <Root.Screen name={'ForgotPassword'} component={ForgotPassword} />
+        <Root.Screen name={'RecoverPassword'} component={RecoverPassword} />
         <Root.Screen name={'Profileupload'} component={Profileupload} />
         <Root.Screen name={'Success'} component={Success} />
         <Root.Screen name={'OtpScreen'} component={OtpScreen} />

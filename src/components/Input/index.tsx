@@ -87,7 +87,6 @@ const Input = forwardRef<InputRef, InputProps>(
                 style={[styles.input, Width_Height(75, 6.5), marginHV(2, 0)]}
                 key={item.id}
                 value={item.value}
-                autoCapitalize="characters"
                 selectionColor={item.iserror ? 'red' : 'green'}
                 onChangeText={newText => {
                   // Check for email validation
