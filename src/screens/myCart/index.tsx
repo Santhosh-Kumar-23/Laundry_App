@@ -15,7 +15,6 @@ import Button from '../../components/Button';
 import Icon from '../../components/Icon';
 import styles from '../../components/CardView/styles';
 import {CardView} from '../../components/CardView/intex';
-import {Divider} from '@rneui/themed';
 
 const MyCart: React.FC<ScreenProps> = ({navigation}) => {
   return (
@@ -31,7 +30,7 @@ const MyCart: React.FC<ScreenProps> = ({navigation}) => {
           My Cart
         </Text>
       </View>
-      <ScrollView>
+      {/* <ScrollView>
         <CardView maxheight={250}>
           <View style={[styles.textContainer, {marginTop: 20}]}>
             <Text style={styles.textStyle}>Order ID</Text>
@@ -602,7 +601,7 @@ const MyCart: React.FC<ScreenProps> = ({navigation}) => {
             </View>
           </View>
         </CardView>
-      </ScrollView>
+      </ScrollView> */}
     </SafeAreaView>
   );
 };
