@@ -13,6 +13,7 @@ export interface CardViewProps {
   data?: Array<Object>;
   maxheight: number;
   children: any;
+  onPress?: any;
 }
 
 export interface ButtonInterface {

@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import Splash from '../../screens/Splash';
 import Onboarding from '../../screens/onboarding/intex';
 import BottomTab from '../bottomTab';
@@ -22,11 +22,23 @@ import Terms from '../../screens/Terms';
 import About from '../../screens/Aboutus';
 import Contact from '../../screens/Contactus';
 import RecoverPassword from '../../screens/recoverPassword';
+import ServiceList from '../../screens/serviceList';
+import Icon from '../../components/Icon';
+import {colors} from '../../utils/colors';
+import MyorderView from '../../screens/myOrderView';
+import ManageAddress from '../../screens/manageAdress';
+import AddAddress from '../../screens/addAddress';
+import EditProfile from '../../screens/EditProfile';
+import ChangePassword from '../../screens/changePassword';
+import CheckOut from '../../screens/checkout';
+import PickupSchedule from '../../screens/pickup';
+import CheckoutScreen from '../../payments';
 
 interface RootNavigatorProps {}
 
 const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
   const Root = createNativeStackNavigator();
+  // const navigation = useNavigation();
 
   return (
     <NavigationContainer>
@@ -55,6 +67,33 @@ const RootNavigator: React.FC<RootNavigatorProps> = ({}) => {
         <Root.Screen name={'Terms'} component={Terms} />
         <Root.Screen name={'About'} component={About} />
         <Root.Screen name={'Contact'} component={Contact} />
+        <Root.Screen name={'MyorderView'} component={MyorderView} />
+        <Root.Screen name={'ManageAddress'} component={ManageAddress} />
+        <Root.Screen name={'AddAddress'} component={AddAddress} />
+        <Root.Screen name={'EditProfile'} component={EditProfile} />
+        <Root.Screen name="ChangePassword" component={ChangePassword} />
+        <Root.Screen name="CheckOut" component={CheckOut} />
+        <Root.Screen name="PickupSchedule" component={PickupSchedule} />
+        <Root.Screen name="CheckoutScreen" component={CheckoutScreen} />
+        <Root.Screen
+          name="ServiceList"
+          component={ServiceList}
+          options={{
+            headerShown: !true,
+            headerTitleAlign: 'center',
+            headerLeft: () => {
+              return (
+                <Icon
+                  // onPress={() => navigation.goBack()}
+                  type="fa"
+                  size={35}
+                  color={colors.black}
+                  name="angle-left"
+                />
+              );
+            },
+          }}
+        />
       </Root.Navigator>
     </NavigationContainer>
   );

@@ -16,6 +16,7 @@ import Button from '../../components/Button';
 import {useNavigation} from '@react-navigation/native';
 import {Divider} from 'react-native-elements';
 import Icon from '../../components/Icon';
+import Calendar from '../../components/Calendar';
 
 const Privacy: React.FC<ScreenProps> = ({}) => {
   const navigation = useNavigation();

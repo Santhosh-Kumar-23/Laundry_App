@@ -47,9 +47,9 @@ const Calendar: FC<CalendarProps> = ({onDateChange}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#FFFFFF',
-    marginTop: 100,
+    paddingTop: 20,
+    paddingBottom: 10,
   },
 });
 export default Calendar;

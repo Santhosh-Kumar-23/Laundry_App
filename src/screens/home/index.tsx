@@ -8,6 +8,7 @@ import {
   Dimensions,
   FlatList,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
 import {ScreenProps} from '../../utils/types';
 import {colors} from '../../utils/colors';
@@ -21,6 +22,7 @@ import Swiper from 'react-native-swiper';
 import {CardView} from '../../components/CardView/intex';
 import {flex} from '../../utils/helperstyles';
 import {useNavigation} from '@react-navigation/native';
+import {Divider} from 'react-native-elements';
 
 const Home: React.FC<ScreenProps> = ({}) => {
   const navigation = useNavigation();
@@ -57,7 +59,10 @@ const Home: React.FC<ScreenProps> = ({}) => {
 
   const renderItem = ({item, index}) => {
     return (
-      <View
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('ServiceList');
+        }}
         style={{
           height: 120,
           width: 100,
@@ -78,7 +83,7 @@ const Home: React.FC<ScreenProps> = ({}) => {
           }}>
           {item.title}
         </Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -173,7 +178,7 @@ const Home: React.FC<ScreenProps> = ({}) => {
             scrollEnabled={false}
             data={serviceCategories}
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{marginBottom: 110, marginHorizontal: 20}}
+            contentContainerStyle={{marginHorizontal: 20}}
             renderItem={renderItem}
             columnWrapperStyle={{
               flex: 1,
@@ -181,6 +186,149 @@ const Home: React.FC<ScreenProps> = ({}) => {
               marginHorizontal: 5,
             }}
             numColumns={3}></FlatList>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+              marginHorizontal: 20,
+              marginTop: 20,
+            }}>
+            <Text style={{color: colors.black, fontFamily: fonts.OpenSansBold}}>
+              Active Order
+            </Text>
+            <Pressable
+              onPress={() => {
+                navigation.navigate('BottomTab', {screen: 'My Order'});
+              }}>
+              <Text style={{color: colors.black}}>View All</Text>
+            </Pressable>
+          </View>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('BottomTab', {screen: 'My Order'});
+            }}
+            style={{
+              backgroundColor: 'white',
+              marginHorizontal: 20,
+              marginTop: 20,
+              elevation: 1,
+              padding: 10,
+              marginBottom: 100,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <View
+                style={{
+                  flex: 0.2,
+                  backgroundColor: 'white',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={Images.dummy1}
+                  style={{height: 62, width: 60}}
+                  resizeMode="contain"
+                />
+              </View>
+              <View style={{flex: 0.8, backgroundColor: 'white'}}>
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{flex: 0.6, backgroundColor: 'white'}}>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        color: 'black',
+                        fontFamily: fonts.OpenSansBold,
+                      }}>
+                      Order ID #00074
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        color: 'black',
+                        fontFamily: fonts.OpenSansBold,
+                        marginTop: 5,
+                      }}>
+                      Tuesday, 10 Oct, 2024
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        fontFamily: fonts.OpenSansBold,
+                        color: 'black',
+                      }}>
+                      05:50 Pm
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flex: 0.4,
+                      backgroundColor: 'white',
+                      justifyContent: 'center',
+                    }}>
+                    <View
+                      style={{
+                        backgroundColor: colors.primarycolor,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginHorizontal: 20,
+                        padding: 2,
+                        borderRadius: 10,
+                      }}>
+                      <Text
+                        style={{
+                          color: colors.white,
+                          fontFamily: fonts.OpenSansBold,
+                          fontSize: 12,
+                        }}>
+                        Pending
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View style={{borderWidth: 1.5, marginVertical: 10}}></View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{backgroundColor: 'white', flex: 0.5}}>
+                <View
+                  style={{
+                    justifyContent: 'flex-start',
+                    flexDirection: 'row',
+                    marginHorizontal: 10,
+                  }}>
+                  <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Image source={Images.pickup} resizeMode="contain" />
+                  </View>
+                  <View style={{marginHorizontal: 20}}>
+                    <Text style={{fontSize: 12, color: 'black'}}>
+                      10 Octobar, 2023
+                    </Text>
+                    <Text style={{fontSize: 12, color: 'black'}}>20-21:59</Text>
+                  </View>
+                </View>
+              </View>
+              <View style={{backgroundColor: 'white', flex: 0.5}}>
+                <View
+                  style={{
+                    justifyContent: 'flex-start',
+                    flexDirection: 'row',
+                    marginHorizontal: 10,
+                  }}>
+                  <View
+                    style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Image source={Images.drop} resizeMode="contain" />
+                  </View>
+                  <View style={{marginHorizontal: 20}}>
+                    <Text style={{fontSize: 12, color: 'black'}}>
+                      10 Octobar, 2023
+                    </Text>
+                    <Text style={{fontSize: 12, color: 'black'}}>20-21:59</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </View>

@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
 import {ScreenProps} from '../../utils/types';
 
@@ -29,6 +30,7 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {Dropdown} from 'react-native-element-dropdown';
+import Modal from 'react-native-modal';
 const data = [
   {label: 'ENG', value: '1'},
   {label: 'Tamil', value: '2'},
@@ -40,6 +42,12 @@ const Profile: React.FC<ScreenProps> = ({}) => {
   const navigation = useNavigation();
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const renderLabel = () => {
     if (value || isFocus) {
@@ -62,18 +70,135 @@ const Profile: React.FC<ScreenProps> = ({}) => {
   return (
     <>
       <View style={{backgroundColor: colors.primarycolor, padding: 15}}>
-        <View style={[HelperStyles.CenterAlign]}>
-          <Images.UserProfile fill={colors.white} />
+        <Modal isVisible={isModalVisible} statusBarTranslucent={true}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              // alignItems: 'center',
+            }}>
+            <View
+              style={{
+                backgroundColor: 'white',
+                paddingVertical: 50,
+                borderRadius: 30,
+              }}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontFamily: fonts.OpenSansBold,
+                  fontSize: 17,
+                  color: colors.black,
+                }}>
+                You Are About to Logout
+              </Text>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: colors.black,
+                  fontFamily: fonts.OpenSansBold,
+                  marginTop: 15,
+                }}>
+                Are you Sure?
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginHorizontal: 20,
+                  marginTop: 10,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    toggleModal();
+                  }}
+                  style={{
+                    flex: 0.4875,
+                    backgroundColor: colors.grey,
+                    padding: 15,
+                    borderRadius: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text
+                    style={{
+                      fontFamily: fonts.OpenSansBold,
+                      color: colors.black,
+                    }}>
+                    No
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Login');
+                  }}
+                  style={{
+                    flex: 0.4875,
+                    // marginHorizontal: 10,
+                    backgroundColor: colors.primarycolor,
+                    padding: 15,
+                    borderRadius: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text
+                    style={{
+                      fontFamily: fonts.OpenSansBold,
+                      color: colors.white,
+                    }}>
+                    Yes
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* <Button title="Hide modal" onPress={toggleModal} /> */}
+          </View>
+        </Modal>
+        <View
+          style={[
+            {
+              backgroundColor: colors.primarycolor,
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+            },
+          ]}>
+          <View>
+            <Text style={{color: colors.primarycolor}}>Edit</Text>
+          </View>
+          <View>
+            <Images.UserProfile fill={colors.white} />
+          </View>
+          <View style={{marginTop: 20, flexDirection: 'row'}}>
+            {/* <Icon
+              onPress={() => navigation.goBack()}
+              type="entypo"
+              size={15}
+              color={colors.white}
+              style={{marginTop: 3}}
+              name="edit"
+            /> */}
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('EditProfile');
+              }}>
+              <Text
+                style={{color: colors.white, fontFamily: fonts.OpenSansBold}}>
+                Edit
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        {/* <Text
+        <Text
           style={{
             textAlign: 'center',
-            color: colors.black,
+            color: colors.white,
             fontFamily: fonts.OpenSansBold,
+            marginTop: 10,
           }}>
           Profile
-        </Text> */}
-        {/* <View style={[HelperStyles.Spacebetween]}>
+        </Text>
+        <View style={[HelperStyles.Spacebetween]}>
           <Icon type="fa6" size={35} color={colors.white} name="user-large" />
           <Button
             title="Login"
@@ -82,7 +207,7 @@ const Profile: React.FC<ScreenProps> = ({}) => {
             textStyle={{color: colors.primarycolor}}
             containerStyle={{backgroundColor: colors.white, borderRadius: 15}}
           />
-        </View> */}
+        </View>
       </View>
       <View style={[HelperStyles.flexend, marginHV(5, 4)]}>
         <Dropdown
@@ -114,7 +239,7 @@ const Profile: React.FC<ScreenProps> = ({}) => {
       </View>
       <View style={[marginHV(5, 0), {marginTop: hp(1)}]}>
         <Pressable
-          //onPress={() => navigation.navigate('Privacy')}
+          onPress={() => navigation.navigate('ManageAddress')}
           style={[HelperStyles.Row]}>
           <Icon
             size={25}
@@ -213,9 +338,7 @@ const Profile: React.FC<ScreenProps> = ({}) => {
         <Divider style={{marginVertical: 20}} />
       </View>
       <View style={[marginHV(5, 0), {marginTop: hp(1)}]}>
-        <Pressable
-          //onPress={() => navigation.navigate('Privacy')}
-          style={[HelperStyles.Row]}>
+        <Pressable onPress={() => toggleModal()} style={[HelperStyles.Row]}>
           <Icon size={25} type="material" color={colors.black} name="logout" />
           <Text
             style={{

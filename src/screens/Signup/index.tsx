@@ -132,7 +132,7 @@ const Signup: FC<ScreenProps> = ({navigation}) => {
       } else {
         navigation.navigate('Profileupload');
       }
-      //navigation.navigate('Profileupload');
+      navigation.navigate('Profileupload');
       setItems(newItems);
     }
   };
